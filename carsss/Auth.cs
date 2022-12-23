@@ -49,6 +49,16 @@ namespace carsss
 
         Point lastPoint;
 
+        private void loginField_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MainPlane_Click(object sender, EventArgs e)
+        {
+
+        }
+
 
         //private void MainPlane_MouseMove(object sender, MouseEventArgs e)
         //{
