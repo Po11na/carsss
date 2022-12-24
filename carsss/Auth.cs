@@ -47,12 +47,17 @@ namespace carsss
 
             if (table.Rows.Count > 0)
             {
-                var menu = new MainMenu();
+                var menu = new MenegerForm();
                 menu.Show(); Hide();
             }
             else MessageBox.Show("Такого аккаунта не существует", "Пароль или логин введены неверно", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
             dataBase.CloseConnection();
+        }
+
+        private void MainPlane_Click(object sender, EventArgs e)
+        {
+
         }
 
 

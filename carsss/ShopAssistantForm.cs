@@ -10,17 +10,11 @@ using System.Windows.Forms;
 
 namespace carsss
 {
-    public partial class MainMenu : Form
+    public partial class ShopAssistantForm : Form
     {
-        public MainMenu()
+        public ShopAssistantForm()
         {
             InitializeComponent();
-            StartPosition = FormStartPosition.CenterScreen;
-        }
-
-        private void MainMenu_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
