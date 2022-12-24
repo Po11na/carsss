@@ -55,6 +55,7 @@ namespace carsss
             this.button1.TabIndex = 0;
             this.button1.Text = "Войти";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // loginField
             // 
@@ -89,7 +90,7 @@ namespace carsss
             this.Логин.Size = new System.Drawing.Size(52, 17);
             this.Логин.TabIndex = 4;
             this.Логин.Text = "Логин";
-            this.Логин.Click += new System.EventHandler(this.label1_Click);
+
             // 
             // label2
             // 
@@ -101,7 +102,7 @@ namespace carsss
             this.label2.Size = new System.Drawing.Size(63, 17);
             this.label2.TabIndex = 5;
             this.label2.Text = "Пароль";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+
             // 
             // closeButton
             // 
@@ -138,7 +139,6 @@ namespace carsss
             this.MainPlane.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.MainPlane.TabIndex = 10;
             this.MainPlane.TabStop = false;
-            this.MainPlane.Click += new System.EventHandler(this.MainPlane_Click);
             // 
             // label3
             // 
@@ -150,7 +150,7 @@ namespace carsss
             this.label3.Size = new System.Drawing.Size(189, 31);
             this.label3.TabIndex = 11;
             this.label3.Text = "Авторизация";
-            this.label3.Click += new System.EventHandler(this.label3_Click_1);
+
             // 
             // Auth
             // 

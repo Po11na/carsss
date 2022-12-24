@@ -1,45 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+using System.Data;
+using MySql.Data.MySqlClient;
 
 namespace carsss
 {
     public partial class Auth : Form
     {
+        DataBaseConnection dataBase = new DataBaseConnection();
         public Auth()
         {
             InitializeComponent();
-
+            StartPosition = FormStartPosition.CenterScreen;
             this.passField.AutoSize = false;
             this.passField.Size = new Size(this.passField.Width, 44);
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click_1(object sender, EventArgs e)
-        {
-
         }
 
         private void closeButton_Click(object sender, EventArgs e)
@@ -54,9 +30,29 @@ namespace carsss
 
         }
 
-        private void MainPlane_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
+            string userLogin = loginField.Text;
+            string userPass = passField.Text;
 
+            MySqlDataAdapter adapter = new MySqlDataAdapter();
+            DataTable table = new DataTable();
+
+            string querystring = $"SELECT id, password, login from automir.registered WHERE login = '{userLogin}' and password = '{userPass}'";
+
+            MySqlCommand command = new MySqlCommand(querystring, dataBase.GetSqlConnection());
+
+            adapter.SelectCommand = command;
+            adapter.Fill(table);
+
+            if (table.Rows.Count > 0)
+            {
+                var menu = new MainMenu();
+                menu.Show(); Hide();
+            }
+            else MessageBox.Show("Такого аккаунта не существует", "Пароль или логин введены неверно", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            dataBase.CloseConnection();
         }
 
 
