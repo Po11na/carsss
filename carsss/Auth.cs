@@ -47,11 +47,33 @@ namespace carsss
 
             if (table.Rows.Count > 0)
             {
-                var menu = new MenegerForm();
-                menu.Show(); Hide();
+                string connStr = "server=localhost;port=3306;username=root;password=vaspurakanci1915;database = automir;";
+                MySqlConnection conn = new MySqlConnection(connStr);
+                conn.Open();
+                string sql = $"SELECT role from automir.registered WHERE login = '{userLogin}'";
+                MySqlCommand roleCheck = new MySqlCommand(sql, conn);
+                string formRole = roleCheck.ExecuteScalar().ToString();
+                switch (formRole)
+                {
+                    
+                    case "director":
+                        var dir = new DirectorForm();
+                        dir.Show(); Hide();
+                        break;
+                    case "manager":
+                        var men = new MenegerForm();
+                        men.Show(); Hide();
+                        break;
+                    case "seller":
+                        var sel = new ShopAssistantForm();
+                        sel.Show(); Hide();
+                        break;
+                    default:
+                        MessageBox.Show("Роль не определена", "Пароль или логин введены неверно", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        break;
+                }
             }
             else MessageBox.Show("Такого аккаунта не существует", "Пароль или логин введены неверно", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
             dataBase.CloseConnection();
         }
 
@@ -59,8 +81,6 @@ namespace carsss
         {
 
         }
-
-
         //private void MainPlane_MouseMove(object sender, MouseEventArgs e)
         //{
         //    if(e.Button = MouseButtons.Left)
