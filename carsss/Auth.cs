@@ -68,6 +68,10 @@ namespace carsss
                         var sel = new ShopAssistantForm();
                         sel.Show(); Hide();
                         break;
+                    case "admin":
+                        var adm = new AdminForm();
+                        adm.Show(); Hide();
+                        break;
                     default:
                         MessageBox.Show("Роль не определена", "Пароль или логин введены неверно", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         break;
