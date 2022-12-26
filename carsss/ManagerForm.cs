@@ -78,7 +78,7 @@ namespace carsss
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             selectedRow = e.RowIndex;
-            if(e.RowIndex <=0)
+            if(e.RowIndex >= 0)
             {
                 DataGridViewRow row = dataGridView1.Rows[selectedRow];
 
@@ -106,7 +106,7 @@ namespace carsss
         {
             dwg.Rows.Clear();
 
-            string searchString = $"select * from menegertable where contact (id, mark, color, year, cond, price) like '%" + textBox_Search.Text + "%'";
+            string searchString = $"select * from menegertable where  concat (id, mark, color, year, cond, price) like '%" + textBox_Search.Text + "%'";
 
             MySqlCommand com = new MySqlCommand(searchString, dataBase.GetSqlConnection());
 
@@ -126,6 +126,67 @@ namespace carsss
         private void textBox_Search_TextChanged(object sender, EventArgs e)
         {
             Search(dataGridView1);
+        }
+
+        private void UpdateRow()
+        {
+            dataBase.OpenConnection();
+            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            {
+                var rowState = (RoWState)dataGridView1.Rows[i].Cells[6].Value;
+                if (rowState == RoWState.Deleted)
+                {
+                    var delId = Convert.ToInt32(dataGridView1.Rows[i].Cells[0].Value);
+                    var deleteQuary = $"delete from menegertable where id = '{delId}'";
+                    var command = new MySqlCommand(deleteQuary, dataBase.GetSqlConnection());
+                    command.ExecuteNonQuery();
+                }
+                if(rowState == RoWState.Modified)
+                {
+                    var id = dataGridView1.Rows[i].Cells[0].Value.ToString();
+                    var mark = dataGridView1.Rows[i].Cells[1].Value.ToString();
+                    var color = dataGridView1.Rows[i].Cells[2].Value.ToString();
+                    var year = dataGridView1.Rows[i].Cells[3].Value.ToString();
+                    var cond = dataGridView1.Rows[i].Cells[4].Value.ToString();
+                    var price = dataGridView1.Rows[i].Cells[5].Value.ToString();
+                    var changeQuery = $"update menegerform set mark = '{mark}', color = '{color}', year = '{year}', cond = '{cond}', price = '{price}' where id = '{id}'";
+                    var command = new MySqlCommand(changeQuery, dataBase.GetSqlConnection());
+                    command.ExecuteNonQuery();
+                }
+
+            }
+            dataBase.CloseConnection();
+        }
+
+
+        private void Change()
+        {
+            var selectedRowIndex = dataGridView1.CurrentCell.RowIndex;
+            int id;
+            var mark = textBox_Mark;
+            var color = textBox_Color;
+            int year;
+            var cond = textBox_Condition;
+            int price;
+
+            if(dataGridView1.Rows[selectedRowIndex].Cells[0].Value.ToString() != string.Empty)
+            {
+                if ((int.TryParse(textBox_Price.Text, out price)) && (int.TryParse(textBox_ID.Text, out id)) && (int.TryParse(textBox_Year.Text, out year)))
+                {
+                    dataGridView1.Rows[selectedRowIndex].SetValues(id, mark, color, year, cond, price);
+                    dataGridView1.Rows[selectedRowIndex].Cells[6].Value = RoWState.Modified;
+                }
+                else
+                {
+                    MessageBox.Show("id, цена и год должны иметь цифровой формат!");
+                }
+            }
+        }
+ 
+
+        private void button_Change_Postavka_Click(object sender, EventArgs e)
+        {
+            Change();
         }
     }
 }

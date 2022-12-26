@@ -373,6 +373,7 @@ namespace carsss
             this.button_Change_Postavka.TabIndex = 1;
             this.button_Change_Postavka.Text = "Изменить";
             this.button_Change_Postavka.UseVisualStyleBackColor = false;
+            this.button_Change_Postavka.Click += new System.EventHandler(this.button_Change_Postavka_Click);
             // 
             // button_New_Postavka
             // 
