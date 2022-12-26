@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace carsss
 {
-    public partial class DirectorForm : Form
+    public partial class AccountantForm : Form
     {
-        public DirectorForm()
+        public AccountantForm()
         {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
