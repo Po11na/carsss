@@ -38,7 +38,7 @@ namespace carsss
             MySqlDataAdapter adapter = new MySqlDataAdapter();
             DataTable table = new DataTable();
 
-            string querystring = $"SELECT id, password, login from pupupu.registered WHERE login = '{userLogin}' and password = '{userPass}'";
+            string querystring = $"SELECT id, password, login from registered WHERE login = '{userLogin}' and password = '{userPass}'";
 
             MySqlCommand command = new MySqlCommand(querystring, dataBase.GetSqlConnection());
 
@@ -47,7 +47,7 @@ namespace carsss
 
             if (table.Rows.Count > 0)
             {
-                string connStr = "server=localhost;port=3306;username=root;password=Polina2003/;database = pupupu;";
+                string connStr = "server=localhost;port=3306;username=root;password=vaspurakanci1915;database = automir;";
                 MySqlConnection conn = new MySqlConnection(connStr);
                 conn.Open();
                 string sql = $"SELECT role from registered WHERE login = '{userLogin}'";
@@ -85,13 +85,5 @@ namespace carsss
         {
 
         }
-        //private void MainPlane_MouseMove(object sender, MouseEventArgs e)
-        //{
-        //    if(e.Button = MouseButtons.Left)
-        //    {
-        //        this.Left
-        //    }
-
-        //}
     }
 }

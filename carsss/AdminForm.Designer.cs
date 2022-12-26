@@ -31,6 +31,7 @@ namespace carsss
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminForm));
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.textBox_Password = new System.Windows.Forms.TextBox();
             this.textBox_Login = new System.Windows.Forms.TextBox();
             this.textBox_Role = new System.Windows.Forms.TextBox();
@@ -42,9 +43,6 @@ namespace carsss
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -53,8 +51,6 @@ namespace carsss
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.PapayaWhip;
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.textBox1);
             this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.textBox_Password);
             this.panel2.Controls.Add(this.textBox_Login);
@@ -67,15 +63,25 @@ namespace carsss
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.pictureBox3);
             this.panel2.Location = new System.Drawing.Point(136, 96);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(329, 208);
             this.panel2.TabIndex = 9;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(140, 170);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "Добавить";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // textBox_Password
             // 
             this.textBox_Password.Location = new System.Drawing.Point(159, 131);
-            this.textBox_Password.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox_Password.Margin = new System.Windows.Forms.Padding(2);
             this.textBox_Password.Name = "textBox_Password";
             this.textBox_Password.Size = new System.Drawing.Size(149, 20);
             this.textBox_Password.TabIndex = 12;
@@ -83,7 +89,7 @@ namespace carsss
             // textBox_Login
             // 
             this.textBox_Login.Location = new System.Drawing.Point(159, 107);
-            this.textBox_Login.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox_Login.Margin = new System.Windows.Forms.Padding(2);
             this.textBox_Login.Name = "textBox_Login";
             this.textBox_Login.Size = new System.Drawing.Size(149, 20);
             this.textBox_Login.TabIndex = 11;
@@ -91,7 +97,7 @@ namespace carsss
             // textBox_Role
             // 
             this.textBox_Role.Location = new System.Drawing.Point(159, 83);
-            this.textBox_Role.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox_Role.Margin = new System.Windows.Forms.Padding(2);
             this.textBox_Role.Name = "textBox_Role";
             this.textBox_Role.Size = new System.Drawing.Size(149, 20);
             this.textBox_Role.TabIndex = 10;
@@ -99,7 +105,7 @@ namespace carsss
             // textBox_Name
             // 
             this.textBox_Name.Location = new System.Drawing.Point(159, 59);
-            this.textBox_Name.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox_Name.Margin = new System.Windows.Forms.Padding(2);
             this.textBox_Name.Name = "textBox_Name";
             this.textBox_Name.Size = new System.Drawing.Size(149, 20);
             this.textBox_Name.TabIndex = 9;
@@ -163,7 +169,7 @@ namespace carsss
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
             this.pictureBox3.Location = new System.Drawing.Point(12, 11);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(38, 32);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -174,39 +180,12 @@ namespace carsss
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(1, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(602, 366);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(140, 170);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "Добавить";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(159, 35);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(149, 20);
-            this.textBox1.TabIndex = 14;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(68, 38);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(18, 13);
-            this.label1.TabIndex = 15;
-            this.label1.Text = "ID";
             // 
             // AdminForm
             // 
@@ -215,7 +194,7 @@ namespace carsss
             this.ClientSize = new System.Drawing.Size(600, 366);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.pictureBox1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "AdminForm";
             this.Text = "AdminForm";
             this.panel2.ResumeLayout(false);
@@ -241,7 +220,5 @@ namespace carsss
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
     }
 }

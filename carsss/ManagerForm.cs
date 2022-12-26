@@ -78,7 +78,7 @@ namespace carsss
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             selectedRow = e.RowIndex;
-            if(e.RowIndex <=0)
+            if(e.RowIndex >= 0)
             {
                 DataGridViewRow row = dataGridView1.Rows[selectedRow];
 
@@ -126,6 +126,88 @@ namespace carsss
         private void textBox_Search_TextChanged(object sender, EventArgs e)
         {
             Search(dataGridView1);
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void DeleteRow()
+        {
+            int index = dataGridView1.CurrentCell.RowIndex;
+            dataGridView1.Rows[index].Visible = false;
+
+            if(dataGridView1.Rows[index].Cells[0].Value.ToString() == string.Empty)
+            {
+                dataGridView1.Rows[index].Cells[6].Value = RoWState.Deleted;
+                return;
+            }
+            dataGridView1.Rows[index].Cells[6].Value = RoWState.Deleted;
+        }
+
+        private void button_Delete_Postavka_Click(object sender, EventArgs e)
+        {
+            DeleteRow();
+        }
+        private void UpdateRow()
+        {
+            dataBase.OpenConnection();
+            for(int i = 0; i< dataGridView1.Rows.Count; i++)
+            {
+                var rowState = (RoWState)dataGridView1.Rows[i].Cells[6].Value;
+                if(rowState == RoWState.Deleted)
+                {
+                    var delId = Convert.ToInt32(dataGridView1.Rows[i].Cells[0].Value);
+                    var deleteQuary = $"delete from menegertable where id = '{delId}'";
+                    var command = new MySqlCommand(deleteQuary, dataBase.GetSqlConnection());
+                    command.ExecuteNonQuery();
+                }
+                if(rowState== RoWState.Modified)
+                {
+                    var id = dataGridView1.Rows[i].Cells[0].Value.ToString();
+                    var mark = dataGridView1.Rows[i].Cells[1].Value.ToString();
+                    var color = dataGridView1.Rows[i].Cells[2].Value.ToString();
+                    var year = dataGridView1.Rows[i].Cells[3].Value.ToString();
+                    var cond = dataGridView1.Rows[i].Cells[4].Value.ToString();
+                    var price = dataGridView1.Rows[i].Cells[5].Value.ToString();
+                    var changeQuery = $"update menegertable set mark = '{mark}', color = '{color}', year = '{year}', cond = '{cond}', price = '{price}' where id = '{id}'";
+                    var command = new MySqlCommand(changeQuery, dataBase.GetSqlConnection());
+                    command.ExecuteNonQuery();
+                }
+            }
+            dataBase.CloseConnection();
+        }
+
+        private void Change()
+        {
+            var index = dataGridView1.CurrentCell.RowIndex;
+            int id;
+            var mark = textBox_Mark;
+            var color = textBox_Color;
+            int year;
+            var cond = textBox_Condition;
+            int price;
+
+            if (dataGridView1.Rows[index].Cells[0].Value.ToString() != string.Empty)
+            {
+                if ((int.TryParse(textBox_Price.Text, out price)) && (int.TryParse(textBox_ID.Text, out id)) && (int.TryParse(textBox_Year.Text, out year)))
+                {
+                    dataGridView1.Rows[index].SetValues(id, mark, color, year, cond, price);
+                    dataGridView1.Rows[index].Cells[6].Value = RoWState.Modified;
+                }
+            }
+            dataGridView1.Rows[index].Cells[6].Value = RoWState.Modified;
+        }
+
+        private void button_Save_Postavka_Click(object sender, EventArgs e)
+        {
+            UpdateRow();
+        }
+
+        private void button_Change_Postavka_Click(object sender, EventArgs e)
+        {
+            Change();
         }
     }
 }

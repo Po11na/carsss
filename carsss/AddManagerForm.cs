@@ -27,10 +27,10 @@ namespace carsss
         private void saveButtonAddManager_Click(object sender, EventArgs e)
         {
             dataBase.OpenConnection();
-            string mark = textBox_markAddManager.Text;
+            string mark = marka.Text;
             string color = textBox_colorAddManager.Text;
             int year;
-            string cond = textBox_condAddManager.Text;
+            string cond = condition.Text;
             int price;
             if((int.TryParse(textBox_priceAddManager.Text, out price)) &&(int.TryParse(textBox_yearAddManager.Text, out year)))
             {
@@ -46,7 +46,6 @@ namespace carsss
                 MessageBox.Show("Цена и год должны иметь цифровой формат!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             dataBase.CloseConnection();
-
         }
     }
 }
