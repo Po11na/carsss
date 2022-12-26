@@ -61,7 +61,7 @@ namespace carsss
                         dir.Show(); Hide();
                         break;
                     case "manager":
-                        var men = new MenegerForm();
+                        var men = new ManagerForm();
                         men.Show(); Hide();
                         break;
                     case "seller":
