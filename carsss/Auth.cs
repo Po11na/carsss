@@ -38,7 +38,7 @@ namespace carsss
             MySqlDataAdapter adapter = new MySqlDataAdapter();
             DataTable table = new DataTable();
 
-            string querystring = $"SELECT id, password, login from pupupu.registered WHERE login = '{userLogin}' and password = '{userPass}'";
+            string querystring = $"SELECT id, password, login from registered WHERE login = '{userLogin}' and password = '{userPass}'";
 
             MySqlCommand command = new MySqlCommand(querystring, dataBase.GetSqlConnection());
 
@@ -85,13 +85,5 @@ namespace carsss
         {
 
         }
-        //private void MainPlane_MouseMove(object sender, MouseEventArgs e)
-        //{
-        //    if(e.Button = MouseButtons.Left)
-        //    {
-        //        this.Left
-        //    }
-
-        //}
     }
 }
