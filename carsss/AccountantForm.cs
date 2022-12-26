@@ -15,6 +15,12 @@ namespace carsss
         public AccountantForm()
         {
             InitializeComponent();
+            StartPosition = FormStartPosition.CenterScreen;
+        }
+
+        private void AccountantForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

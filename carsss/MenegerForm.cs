@@ -67,5 +67,10 @@ namespace carsss
         {
 
         }
+
+        private void button_New_Postavka_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

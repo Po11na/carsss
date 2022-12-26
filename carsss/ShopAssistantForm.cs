@@ -15,6 +15,7 @@ namespace carsss
         public ShopAssistantForm()
         {
             InitializeComponent();
+            StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -38,6 +39,11 @@ namespace carsss
         }
 
         private void button_Change_Postavka_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button_New_Postavka_Click(object sender, EventArgs e)
         {
 
         }
