@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,26 @@ namespace carsss
         public AdminForm()
         {
             InitializeComponent();
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int id = int.Parse(textBox1.Text);
+            string name = textBox_Name.Text;
+            string login = textBox_Login.Text;
+            string role = textBox_Role.Text;
+            string password = textBox_Password.Text;
+            DataBaseConnection dataBaseConnection = new DataBaseConnection();
+
+            string sql = $"insert into automir.registered(id,name,login,password,role) values('{id}','{name}', '{login}', '{password}','{role}')";
+
+            MySqlCommand command = new MySqlCommand(sql, dataBaseConnection.GetSqlConnection());
+            dataBaseConnection.OpenConnection();
+
+            if (command.ExecuteNonQuery() == 1)
+            {
+                MessageBox.Show("Пользователь добавлен");
+            }
+
         }
     }
 }

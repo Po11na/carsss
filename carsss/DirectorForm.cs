@@ -15,11 +15,25 @@ namespace carsss
         public DirectorForm()
         {
             InitializeComponent();
+            StartPosition = FormStartPosition.CenterScreen;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void manButton_Click(object sender, EventArgs e)
         {
+            var managerForm = new MenegerForm();
+            managerForm.Show(); this.Hide();
+        }
 
+        private void accButton_Click(object sender, EventArgs e)
+        {
+            var accountantForm = new AccountantForm();
+            accountantForm.Show(); this.Hide();
+        }
+
+        private void selButton_Click(object sender, EventArgs e)
+        {
+            var sellerForm = new ShopAssistantForm();
+            sellerForm.Show(); this.Hide();
         }
     }
 }

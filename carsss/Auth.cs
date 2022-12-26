@@ -38,7 +38,7 @@ namespace carsss
             MySqlDataAdapter adapter = new MySqlDataAdapter();
             DataTable table = new DataTable();
 
-            string querystring = $"SELECT id, password, login from pupupu.registered WHERE login = '{userLogin}' and password = '{userPass}'";
+            string querystring = $"SELECT id, password, login from automir.registered WHERE login = '{userLogin}' and password = '{userPass}'";
 
             MySqlCommand command = new MySqlCommand(querystring, dataBase.GetSqlConnection());
 
@@ -47,10 +47,10 @@ namespace carsss
 
             if (table.Rows.Count > 0)
             {
-                string connStr = "server=localhost;port=3306;username=root;password=Polina2003/;database = pupupu;";
+                string connStr = "server=localhost;port=3306;username=root;password=vaspurakanci1915;database = automir;";
                 MySqlConnection conn = new MySqlConnection(connStr);
                 conn.Open();
-                string sql = $"SELECT role from pupupu.registered WHERE login = '{userLogin}'";
+                string sql = $"SELECT role from automir.registered WHERE login = '{userLogin}'";
                 MySqlCommand roleCheck = new MySqlCommand(sql, conn);
                 string formRole = roleCheck.ExecuteScalar().ToString();
                 switch (formRole)
@@ -67,6 +67,10 @@ namespace carsss
                     case "seller":
                         var sel = new ShopAssistantForm();
                         sel.Show(); Hide();
+                        break;
+                    case "admin":
+                        var adm = new AdminForm();
+                        adm.Show(); Hide();
                         break;
                     default:
                         MessageBox.Show("Роль не определена", "Пароль или логин введены неверно", MessageBoxButtons.OK, MessageBoxIcon.Warning);

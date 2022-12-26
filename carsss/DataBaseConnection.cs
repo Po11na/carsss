@@ -13,10 +13,10 @@ namespace carsss
             "server = localhost;"+
             "port =3306;"+
             "username = root;"+
-            //"password = vaspurakanci1915;" +
-            "password = Polina2003/;" +
-            //"database = automir;"
-            "database = pupupu;"
+            "password = vaspurakanci1915;" +
+            //"password = Polina2003/;" +
+            "database = automir;"
+            //"database = pupupu;"
             );
 
         public void OpenConnection()

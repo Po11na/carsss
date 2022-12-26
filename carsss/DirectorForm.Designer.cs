@@ -30,61 +30,65 @@ namespace carsss
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DirectorForm));
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.manButton = new System.Windows.Forms.Button();
+            this.accButton = new System.Windows.Forms.Button();
+            this.selButton = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // button1
+            // manButton
             // 
-            this.button1.Location = new System.Drawing.Point(22, 230);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(235, 66);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Менеджер";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.manButton.Location = new System.Drawing.Point(16, 187);
+            this.manButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.manButton.Name = "manButton";
+            this.manButton.Size = new System.Drawing.Size(176, 54);
+            this.manButton.TabIndex = 0;
+            this.manButton.Text = "Менеджер";
+            this.manButton.UseVisualStyleBackColor = true;
+            this.manButton.Click += new System.EventHandler(this.manButton_Click);
             // 
-            // button2
+            // accButton
             // 
-            this.button2.Location = new System.Drawing.Point(312, 230);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(234, 68);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Бухгалтер";
-            this.button2.UseVisualStyleBackColor = true;
+            this.accButton.Location = new System.Drawing.Point(234, 187);
+            this.accButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.accButton.Name = "accButton";
+            this.accButton.Size = new System.Drawing.Size(176, 55);
+            this.accButton.TabIndex = 1;
+            this.accButton.Text = "Бухгалтер";
+            this.accButton.UseVisualStyleBackColor = true;
+            this.accButton.Click += new System.EventHandler(this.accButton_Click);
             // 
-            // button3
+            // selButton
             // 
-            this.button3.Location = new System.Drawing.Point(581, 230);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(235, 66);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Продавец-консультант";
-            this.button3.UseVisualStyleBackColor = true;
+            this.selButton.Location = new System.Drawing.Point(436, 187);
+            this.selButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.selButton.Name = "selButton";
+            this.selButton.Size = new System.Drawing.Size(176, 54);
+            this.selButton.TabIndex = 2;
+            this.selButton.Text = "Продавец-консультант";
+            this.selButton.UseVisualStyleBackColor = true;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(-14, -15);
+            this.pictureBox1.Location = new System.Drawing.Point(-10, -12);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(868, 517);
+            this.pictureBox1.Size = new System.Drawing.Size(651, 420);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             // 
             // DirectorForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(866, 502);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(650, 408);
+            this.Controls.Add(this.selButton);
+            this.Controls.Add(this.accButton);
+            this.Controls.Add(this.manButton);
             this.Controls.Add(this.pictureBox1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "DirectorForm";
             this.Text = "DirectorForm";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -94,9 +98,9 @@ namespace carsss
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button manButton;
+        private System.Windows.Forms.Button accButton;
+        private System.Windows.Forms.Button selButton;
         private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
