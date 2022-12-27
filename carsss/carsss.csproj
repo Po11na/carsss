@@ -53,6 +53,12 @@
     <Compile Include="AccountantForm.Designer.cs">
       <DependentUpon>AccountantForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddAccountantForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddAccountantForm.Designer.cs">
+      <DependentUpon>AddAccountantForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddManagerForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,6 +100,9 @@
     </Compile>
     <EmbeddedResource Include="AccountantForm.resx">
       <DependentUpon>AccountantForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddAccountantForm.resx">
+      <DependentUpon>AddAccountantForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddManagerForm.resx">
       <DependentUpon>AddManagerForm.cs</DependentUpon>

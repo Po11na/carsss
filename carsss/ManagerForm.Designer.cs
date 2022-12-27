@@ -165,7 +165,6 @@ namespace carsss
             this.label10.Size = new System.Drawing.Size(19, 18);
             this.label10.TabIndex = 6;
             this.label10.Text = "X";
-            
             // 
             // panel2
             // 
@@ -351,7 +350,7 @@ namespace carsss
             this.button_Save_Postavka.TabIndex = 3;
             this.button_Save_Postavka.Text = "Сохранить";
             this.button_Save_Postavka.UseVisualStyleBackColor = false;
-            
+            this.button_Save_Postavka.Click += new System.EventHandler(this.button_Save_Postavka_Click);
             // 
             // button_Delete_Postavka
             // 
@@ -366,7 +365,7 @@ namespace carsss
             this.button_Delete_Postavka.TabIndex = 2;
             this.button_Delete_Postavka.Text = "Удалить";
             this.button_Delete_Postavka.UseVisualStyleBackColor = false;
-            
+            this.button_Delete_Postavka.Click += new System.EventHandler(this.button_Delete_Postavka_Click);
             // 
             // button_Change_Postavka
             // 

@@ -47,7 +47,7 @@ namespace carsss
 
             if (table.Rows.Count > 0)
             {
-                string connStr = "server=localhost;port=3306;username=root;password=Polina2003/;database = pupupu;";
+                string connStr = "server=localhost;port=3306;username=root;password=vaspurakanci1915;database = automir;";
                 MySqlConnection conn = new MySqlConnection(connStr);
                 conn.Open();
                 string sql = $"SELECT role from registered WHERE login = '{userLogin}'";

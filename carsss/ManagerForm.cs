@@ -74,22 +74,8 @@ namespace carsss
         }
 
        
-
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            selectedRow = e.RowIndex;
-            if(e.RowIndex >= 0)
-            {
-                DataGridViewRow row = dataGridView1.Rows[selectedRow];
-
-                textBox_ID.Text = row.Cells[0].Value.ToString();
-                textBox_Mark.Text = row.Cells[1].Value.ToString();
-                textBox_Color.Text = row.Cells[2].Value.ToString();
-                textBox_Year.Text = row.Cells[3].Value.ToString();
-                textBox_Condition.Text = row.Cells[4].Value.ToString();
-                textBox_Price.Text = row.Cells[5].Value.ToString();
-            }
-        }
+        //показывает данные в мини таблицу снизу
+        
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
@@ -149,7 +135,7 @@ namespace carsss
                     var year = dataGridView1.Rows[i].Cells[3].Value.ToString();
                     var cond = dataGridView1.Rows[i].Cells[4].Value.ToString();
                     var price = dataGridView1.Rows[i].Cells[5].Value.ToString();
-                    var changeQuery = $"update menegerform set mark = '{mark}', color = '{color}', year = '{year}', cond = '{cond}', price = '{price}' where id = '{id}'";
+                    var changeQuery = $"update menegertable set mark = '{mark}', color = '{color}', year = '{year}', cond = '{cond}', price = '{price}' where id = '{id}'";
                     var command = new MySqlCommand(changeQuery, dataBase.GetSqlConnection());
                     command.ExecuteNonQuery();
                 }
@@ -163,10 +149,10 @@ namespace carsss
         {
             var selectedRowIndex = dataGridView1.CurrentCell.RowIndex;
             int id;
-            var mark = textBox_Mark;
-            var color = textBox_Color;
+            var mark = textBox_Mark.Text;
+            var color = textBox_Color.Text;
             int year;
-            var cond = textBox_Condition;
+            var cond = textBox_Condition.Text;
             int price;
 
             if(dataGridView1.Rows[selectedRowIndex].Cells[0].Value.ToString() != string.Empty)
@@ -182,11 +168,49 @@ namespace carsss
                 }
             }
         }
+
+        private void DeleteRow()
+        {
+            var selectedRowIndex = dataGridView1.CurrentCell.RowIndex;
+            dataGridView1.Rows[selectedRowIndex].Visible = false;
+            if (dataGridView1.Rows[selectedRowIndex].Cells[0].Value.ToString() == string.Empty)
+            {
+                dataGridView1.Rows[selectedRowIndex].Cells[6].Value= RoWState.Deleted;
+                return;
+            }
+            dataGridView1.Rows[selectedRowIndex].Cells[6].Value = RoWState.Deleted;
+        }
  
 
         private void button_Change_Postavka_Click(object sender, EventArgs e)
         {
             Change();
+        }
+
+        private void button_Delete_Postavka_Click(object sender, EventArgs e)
+        {
+            DeleteRow();
+        }
+
+        private void button_Save_Postavka_Click(object sender, EventArgs e)
+        {
+            UpdateRow();
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            selectedRow = e.RowIndex;
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dataGridView1.Rows[selectedRow];
+
+                textBox_ID.Text = row.Cells[0].Value.ToString();
+                textBox_Mark.Text = row.Cells[1].Value.ToString();
+                textBox_Color.Text = row.Cells[2].Value.ToString();
+                textBox_Year.Text = row.Cells[3].Value.ToString();
+                textBox_Condition.Text = row.Cells[4].Value.ToString();
+                textBox_Price.Text = row.Cells[5].Value.ToString();
+            }
         }
     }
 }
