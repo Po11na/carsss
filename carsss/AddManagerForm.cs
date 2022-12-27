@@ -46,6 +46,7 @@ namespace carsss
             {
                 MessageBox.Show("Цена и год должны иметь цифровой формат!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+
             dataBase.CloseConnection();
         }
     }
