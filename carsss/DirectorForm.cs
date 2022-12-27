@@ -40,5 +40,17 @@ namespace carsss
         {
 
         }
+
+        private void selButton_Click_1(object sender, EventArgs e)
+        {
+            var sellerForm = new ShopAssistantForm();
+            sellerForm.Show(); this.Hide();
+
+        }
+
+        private void closeButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

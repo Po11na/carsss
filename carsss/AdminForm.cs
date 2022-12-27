@@ -35,5 +35,10 @@ namespace carsss
                 MessageBox.Show("Пользователь добавлен","Успех");
             }
         }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

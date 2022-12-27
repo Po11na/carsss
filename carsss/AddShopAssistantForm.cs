@@ -12,29 +12,30 @@ using MySql.Data.MySqlClient;
 
 namespace carsss
 {
-    public partial class AddManagerForm : Form
+    public partial class AddShopAssistantForm : Form
     {
         DataBaseConnection dataBase = new DataBaseConnection();
-        public AddManagerForm()
+        public AddShopAssistantForm()
         {
             InitializeComponent();
         }
 
-        private void AddManagerForm_Load(object sender, EventArgs e)
+        private void AddShopAssistantForm_Load(object sender, EventArgs e)
         {
 
         }
-        private void saveButtonAddManager_Click(object sender, EventArgs e)
+
+        private void saveButtonAddShopAssistant_Click(object sender, EventArgs e)
         {
             dataBase.OpenConnection();
-            string mark = marka.Text;
-            string color = textBox_colorAddManager.Text;
+            string mark = textBox_markAddShopAssistant.Text;
+            string color = textBox_colorAddShopAssistant.Text;
             int year;
-            string cond = condition.Text;
+            string cond = textBox_conditionAddShopAssistant.Text;
             int price;
-            if((int.TryParse(textBox_priceAddManager.Text, out price)) &&(int.TryParse(textBox_yearAddManager.Text, out year)))
+            if ((int.TryParse(textBox_priceAddShopAssistant.Text, out price)) && (int.TryParse(textBox_yearAddShopAssistant.Text, out year)))
             {
-                var addQuery = $"INSERT INTO menegertable ( mark, color, year, cond, price) VALUES ('{mark}', '{color}', '{year}', '{cond}','{price}')";
+                var addQuery = $"INSERT INTO shopassistanttable ( marksale, colorsale, yearsale, condsale, pricesale) VALUES ('{mark}', '{color}', '{year}', '{cond}','{price}')";
 
                 var command = new MySqlCommand(addQuery, dataBase.GetSqlConnection());
                 command.ExecuteNonQuery();

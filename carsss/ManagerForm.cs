@@ -94,6 +94,7 @@ namespace carsss
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             RefreshDataGrid(dataGridView1);
+            ClearFields();
         }
 
         private void button_New_Postavka_Click(object sender, EventArgs e)
@@ -134,6 +135,9 @@ namespace carsss
             for (int i = 0; i < dataGridView1.Rows.Count; i++)
             {
                 var rowState = (RoWState)dataGridView1.Rows[i].Cells[6].Value;
+                if (rowState == RoWState.Existed)
+                    continue;
+
                 if (rowState == RoWState.Deleted)
                 {
                     var delId = Convert.ToInt32(dataGridView1.Rows[i].Cells[0].Value);
@@ -149,7 +153,7 @@ namespace carsss
                     var year = dataGridView1.Rows[i].Cells[3].Value.ToString();
                     var cond = dataGridView1.Rows[i].Cells[4].Value.ToString();
                     var price = dataGridView1.Rows[i].Cells[5].Value.ToString();
-                    var changeQuery = $"update menegerform set mark = '{mark}', color = '{color}', year = '{year}', cond = '{cond}', price = '{price}' where id = '{id}'";
+                    var changeQuery = $"update menegertable set mark = '{mark}', color = '{color}', year = '{year}', cond = '{cond}', price = '{price}' where id = '{id}'";
                     var command = new MySqlCommand(changeQuery, dataBase.GetSqlConnection());
                     command.ExecuteNonQuery();
                 }
@@ -163,10 +167,10 @@ namespace carsss
         {
             var selectedRowIndex = dataGridView1.CurrentCell.RowIndex;
             int id;
-            var mark = textBox_Mark;
-            var color = textBox_Color;
+            var mark = textBox_Mark.Text;
+            var color = textBox_Color.Text;
             int year;
-            var cond = textBox_Condition;
+            var cond = textBox_Condition.Text;
             int price;
 
             if(dataGridView1.Rows[selectedRowIndex].Cells[0].Value.ToString() != string.Empty)
@@ -187,6 +191,49 @@ namespace carsss
         private void button_Change_Postavka_Click(object sender, EventArgs e)
         {
             Change();
+            ClearFields();
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void DeleteRow()
+        {
+            var selectedRowIndex = dataGridView1.CurrentCell.RowIndex;
+            dataGridView1.Rows[selectedRowIndex].Visible = false;
+            if (dataGridView1.Rows[selectedRowIndex].Cells[0].Value.ToString() == string.Empty)
+            {
+                dataGridView1.Rows[selectedRowIndex].Cells[6].Value = RoWState.Deleted;
+                return;
+            }
+            dataGridView1.Rows[selectedRowIndex].Cells[6].Value = RoWState.Deleted;
+        }
+
+        private void button_Delete_Postavka_Click(object sender, EventArgs e)
+        {
+            DeleteRow();
+            ClearFields();
+        }
+
+        private void button_Save_Postavka_Click(object sender, EventArgs e)
+        {
+            UpdateRow();
+        }
+
+        public void ClearFields()
+        {
+            textBox_ID.Text = "";
+            textBox_Mark.Text = "";
+            textBox_Color.Text = "";
+            textBox_Year.Text = "";
+            textBox_Condition.Text = "";
+            textBox_Price.Text = "";
+        }
+
+        private void clearSale_Click(object sender, EventArgs e)
+        {
+            ClearFields();
         }
     }
 }
