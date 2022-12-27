@@ -31,19 +31,19 @@ namespace carsss
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AccountantForm));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox_Search = new System.Windows.Forms.TextBox();
+            this.searchBox = new System.Windows.Forms.TextBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.refreshButton = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.textBox_Price = new System.Windows.Forms.TextBox();
-            this.textBox_Condition = new System.Windows.Forms.TextBox();
-            this.textBox_Year = new System.Windows.Forms.TextBox();
-            this.textBox_Color = new System.Windows.Forms.TextBox();
-            this.textBox_Mark = new System.Windows.Forms.TextBox();
-            this.textBox_ID = new System.Windows.Forms.TextBox();
+            this.accPrice = new System.Windows.Forms.TextBox();
+            this.accCond = new System.Windows.Forms.TextBox();
+            this.accYear = new System.Windows.Forms.TextBox();
+            this.accColor = new System.Windows.Forms.TextBox();
+            this.accMark = new System.Windows.Forms.TextBox();
+            this.accId = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -54,17 +54,18 @@ namespace carsss
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label9 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.button_Save_Postavka = new System.Windows.Forms.Button();
-            this.button_Delete_Postavka = new System.Windows.Forms.Button();
-            this.button_Change_Postavka = new System.Windows.Forms.Button();
-            this.button_New_Postavka = new System.Windows.Forms.Button();
+            this.button_Save_Nakl = new System.Windows.Forms.Button();
+            this.button_Delete_Nakl = new System.Windows.Forms.Button();
+            this.button_Change_Nakl = new System.Windows.Forms.Button();
+            this.button_New_Nakl = new System.Windows.Forms.Button();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.close_Button = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.refreshButton)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panel3.SuspendLayout();
@@ -73,35 +74,36 @@ namespace carsss
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(199)))), ((int)(((byte)(177)))));
-            this.panel1.Controls.Add(this.textBox_Search);
+            this.panel1.BackColor = System.Drawing.Color.PapayaWhip;
+            this.panel1.Controls.Add(this.searchBox);
             this.panel1.Controls.Add(this.pictureBox5);
             this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.pictureBox2);
+            this.panel1.Controls.Add(this.refreshButton);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(0, 37);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel1.Location = new System.Drawing.Point(6, 23);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(891, 59);
+            this.panel1.Size = new System.Drawing.Size(879, 59);
             this.panel1.TabIndex = 15;
             // 
-            // textBox_Search
+            // searchBox
             // 
-            this.textBox_Search.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox_Search.Location = new System.Drawing.Point(669, 16);
-            this.textBox_Search.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox_Search.Multiline = true;
-            this.textBox_Search.Name = "textBox_Search";
-            this.textBox_Search.Size = new System.Drawing.Size(191, 29);
-            this.textBox_Search.TabIndex = 2;
+            this.searchBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.searchBox.Location = new System.Drawing.Point(714, 17);
+            this.searchBox.Margin = new System.Windows.Forms.Padding(2);
+            this.searchBox.Multiline = true;
+            this.searchBox.Name = "searchBox";
+            this.searchBox.Size = new System.Drawing.Size(144, 24);
+            this.searchBox.TabIndex = 2;
+            this.searchBox.TextChanged += new System.EventHandler(this.searchBox_TextChanged);
             // 
             // pictureBox5
             // 
             this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(517, 14);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox5.Location = new System.Drawing.Point(530, 4);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(45, 41);
+            this.pictureBox5.Size = new System.Drawing.Size(54, 48);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox5.TabIndex = 3;
             this.pictureBox5.TabStop = false;
@@ -109,24 +111,25 @@ namespace carsss
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(621, 14);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox1.Location = new System.Drawing.Point(643, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(43, 39);
+            this.pictureBox1.Size = new System.Drawing.Size(52, 48);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // pictureBox2
+            // refreshButton
             // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(568, 14);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(47, 41);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
+            this.refreshButton.Image = ((System.Drawing.Image)(resources.GetObject("refreshButton.Image")));
+            this.refreshButton.Location = new System.Drawing.Point(588, 4);
+            this.refreshButton.Margin = new System.Windows.Forms.Padding(2);
+            this.refreshButton.Name = "refreshButton";
+            this.refreshButton.Size = new System.Drawing.Size(51, 48);
+            this.refreshButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.refreshButton.TabIndex = 1;
+            this.refreshButton.TabStop = false;
+            this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
             // 
             // label1
             // 
@@ -138,27 +141,31 @@ namespace carsss
             this.label1.TabIndex = 0;
             this.label1.Text = "Список накладных";
             // 
-            // dataGridView1
+            // dataGridView2
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.PapayaWhip;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 102);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(891, 245);
-            this.dataGridView1.TabIndex = 16;
+            this.dataGridView2.AllowUserToAddRows = false;
+            this.dataGridView2.AllowUserToDeleteRows = false;
+            this.dataGridView2.BackgroundColor = System.Drawing.Color.PapayaWhip;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(8, 86);
+            this.dataGridView2.Margin = new System.Windows.Forms.Padding(2);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.ReadOnly = true;
+            this.dataGridView2.RowHeadersWidth = 51;
+            this.dataGridView2.RowTemplate.Height = 24;
+            this.dataGridView2.Size = new System.Drawing.Size(877, 250);
+            this.dataGridView2.TabIndex = 16;
+            this.dataGridView2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellClick);
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.PapayaWhip;
-            this.panel2.Controls.Add(this.textBox_Price);
-            this.panel2.Controls.Add(this.textBox_Condition);
-            this.panel2.Controls.Add(this.textBox_Year);
-            this.panel2.Controls.Add(this.textBox_Color);
-            this.panel2.Controls.Add(this.textBox_Mark);
-            this.panel2.Controls.Add(this.textBox_ID);
+            this.panel2.Controls.Add(this.accPrice);
+            this.panel2.Controls.Add(this.accCond);
+            this.panel2.Controls.Add(this.accYear);
+            this.panel2.Controls.Add(this.accColor);
+            this.panel2.Controls.Add(this.accMark);
+            this.panel2.Controls.Add(this.accId);
             this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.label6);
@@ -167,59 +174,59 @@ namespace carsss
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.pictureBox3);
-            this.panel2.Location = new System.Drawing.Point(33, 353);
-            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel2.Location = new System.Drawing.Point(82, 344);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(439, 214);
             this.panel2.TabIndex = 17;
             // 
-            // textBox_Price
+            // accPrice
             // 
-            this.textBox_Price.Location = new System.Drawing.Point(212, 181);
-            this.textBox_Price.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox_Price.Name = "textBox_Price";
-            this.textBox_Price.Size = new System.Drawing.Size(197, 22);
-            this.textBox_Price.TabIndex = 13;
+            this.accPrice.Location = new System.Drawing.Point(219, 181);
+            this.accPrice.Margin = new System.Windows.Forms.Padding(2);
+            this.accPrice.Name = "accPrice";
+            this.accPrice.Size = new System.Drawing.Size(149, 22);
+            this.accPrice.TabIndex = 13;
             // 
-            // textBox_Condition
+            // accCond
             // 
-            this.textBox_Condition.Location = new System.Drawing.Point(212, 155);
-            this.textBox_Condition.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox_Condition.Name = "textBox_Condition";
-            this.textBox_Condition.Size = new System.Drawing.Size(197, 22);
-            this.textBox_Condition.TabIndex = 12;
+            this.accCond.Location = new System.Drawing.Point(219, 154);
+            this.accCond.Margin = new System.Windows.Forms.Padding(2);
+            this.accCond.Name = "accCond";
+            this.accCond.Size = new System.Drawing.Size(149, 22);
+            this.accCond.TabIndex = 12;
             // 
-            // textBox_Year
+            // accYear
             // 
-            this.textBox_Year.Location = new System.Drawing.Point(212, 127);
-            this.textBox_Year.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox_Year.Name = "textBox_Year";
-            this.textBox_Year.Size = new System.Drawing.Size(197, 22);
-            this.textBox_Year.TabIndex = 11;
+            this.accYear.Location = new System.Drawing.Point(219, 123);
+            this.accYear.Margin = new System.Windows.Forms.Padding(2);
+            this.accYear.Name = "accYear";
+            this.accYear.Size = new System.Drawing.Size(149, 22);
+            this.accYear.TabIndex = 11;
             // 
-            // textBox_Color
+            // accColor
             // 
-            this.textBox_Color.Location = new System.Drawing.Point(212, 98);
-            this.textBox_Color.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox_Color.Name = "textBox_Color";
-            this.textBox_Color.Size = new System.Drawing.Size(197, 22);
-            this.textBox_Color.TabIndex = 10;
+            this.accColor.Location = new System.Drawing.Point(219, 93);
+            this.accColor.Margin = new System.Windows.Forms.Padding(2);
+            this.accColor.Name = "accColor";
+            this.accColor.Size = new System.Drawing.Size(149, 22);
+            this.accColor.TabIndex = 10;
             // 
-            // textBox_Mark
+            // accMark
             // 
-            this.textBox_Mark.Location = new System.Drawing.Point(212, 71);
-            this.textBox_Mark.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox_Mark.Name = "textBox_Mark";
-            this.textBox_Mark.Size = new System.Drawing.Size(197, 22);
-            this.textBox_Mark.TabIndex = 9;
+            this.accMark.Location = new System.Drawing.Point(219, 68);
+            this.accMark.Margin = new System.Windows.Forms.Padding(2);
+            this.accMark.Name = "accMark";
+            this.accMark.Size = new System.Drawing.Size(149, 22);
+            this.accMark.TabIndex = 9;
             // 
-            // textBox_ID
+            // accId
             // 
-            this.textBox_ID.Location = new System.Drawing.Point(212, 43);
-            this.textBox_ID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox_ID.Name = "textBox_ID";
-            this.textBox_ID.Size = new System.Drawing.Size(197, 22);
-            this.textBox_ID.TabIndex = 8;
+            this.accId.Location = new System.Drawing.Point(219, 40);
+            this.accId.Margin = new System.Windows.Forms.Padding(2);
+            this.accId.Name = "accId";
+            this.accId.Size = new System.Drawing.Size(149, 22);
+            this.accId.TabIndex = 8;
             // 
             // label8
             // 
@@ -294,8 +301,8 @@ namespace carsss
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(16, 14);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox3.Location = new System.Drawing.Point(12, 11);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(51, 39);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -307,7 +314,7 @@ namespace carsss
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.PapayaWhip;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label9.Location = new System.Drawing.Point(493, 353);
+            this.label9.Location = new System.Drawing.Point(547, 344);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(241, 20);
             this.label9.TabIndex = 18;
@@ -316,79 +323,83 @@ namespace carsss
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.PapayaWhip;
-            this.panel3.Controls.Add(this.button_Save_Postavka);
-            this.panel3.Controls.Add(this.button_Delete_Postavka);
-            this.panel3.Controls.Add(this.button_Change_Postavka);
-            this.panel3.Controls.Add(this.button_New_Postavka);
-            this.panel3.Location = new System.Drawing.Point(497, 380);
-            this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel3.Controls.Add(this.button_Save_Nakl);
+            this.panel3.Controls.Add(this.button_Delete_Nakl);
+            this.panel3.Controls.Add(this.button_Change_Nakl);
+            this.panel3.Controls.Add(this.button_New_Nakl);
+            this.panel3.Location = new System.Drawing.Point(551, 371);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(235, 187);
             this.panel3.TabIndex = 19;
             // 
-            // button_Save_Postavka
+            // button_Save_Nakl
             // 
-            this.button_Save_Postavka.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(173)))), ((int)(((byte)(156)))));
-            this.button_Save_Postavka.FlatAppearance.BorderSize = 0;
-            this.button_Save_Postavka.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_Save_Postavka.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button_Save_Postavka.Location = new System.Drawing.Point(21, 143);
-            this.button_Save_Postavka.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button_Save_Postavka.Name = "button_Save_Postavka";
-            this.button_Save_Postavka.Size = new System.Drawing.Size(196, 36);
-            this.button_Save_Postavka.TabIndex = 3;
-            this.button_Save_Postavka.Text = "Сохранить";
-            this.button_Save_Postavka.UseVisualStyleBackColor = false;
+            this.button_Save_Nakl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(173)))), ((int)(((byte)(156)))));
+            this.button_Save_Nakl.FlatAppearance.BorderSize = 0;
+            this.button_Save_Nakl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_Save_Nakl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button_Save_Nakl.Location = new System.Drawing.Point(33, 131);
+            this.button_Save_Nakl.Margin = new System.Windows.Forms.Padding(2);
+            this.button_Save_Nakl.Name = "button_Save_Nakl";
+            this.button_Save_Nakl.Size = new System.Drawing.Size(180, 41);
+            this.button_Save_Nakl.TabIndex = 3;
+            this.button_Save_Nakl.Text = "Сохранить";
+            this.button_Save_Nakl.UseVisualStyleBackColor = false;
+            this.button_Save_Nakl.Click += new System.EventHandler(this.button_Save_Nakl_Click);
             // 
-            // button_Delete_Postavka
+            // button_Delete_Nakl
             // 
-            this.button_Delete_Postavka.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(173)))), ((int)(((byte)(156)))));
-            this.button_Delete_Postavka.FlatAppearance.BorderSize = 0;
-            this.button_Delete_Postavka.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_Delete_Postavka.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button_Delete_Postavka.Location = new System.Drawing.Point(21, 55);
-            this.button_Delete_Postavka.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button_Delete_Postavka.Name = "button_Delete_Postavka";
-            this.button_Delete_Postavka.Size = new System.Drawing.Size(196, 36);
-            this.button_Delete_Postavka.TabIndex = 2;
-            this.button_Delete_Postavka.Text = "Удалить";
-            this.button_Delete_Postavka.UseVisualStyleBackColor = false;
+            this.button_Delete_Nakl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(173)))), ((int)(((byte)(156)))));
+            this.button_Delete_Nakl.FlatAppearance.BorderSize = 0;
+            this.button_Delete_Nakl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_Delete_Nakl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button_Delete_Nakl.Location = new System.Drawing.Point(33, 60);
+            this.button_Delete_Nakl.Margin = new System.Windows.Forms.Padding(2);
+            this.button_Delete_Nakl.Name = "button_Delete_Nakl";
+            this.button_Delete_Nakl.Size = new System.Drawing.Size(180, 29);
+            this.button_Delete_Nakl.TabIndex = 2;
+            this.button_Delete_Nakl.Text = "Удалить";
+            this.button_Delete_Nakl.UseVisualStyleBackColor = false;
+            this.button_Delete_Nakl.Click += new System.EventHandler(this.button_Delete_Nakl_Click);
             // 
-            // button_Change_Postavka
+            // button_Change_Nakl
             // 
-            this.button_Change_Postavka.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(173)))), ((int)(((byte)(156)))));
-            this.button_Change_Postavka.FlatAppearance.BorderSize = 0;
-            this.button_Change_Postavka.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_Change_Postavka.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button_Change_Postavka.Location = new System.Drawing.Point(21, 97);
-            this.button_Change_Postavka.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button_Change_Postavka.Name = "button_Change_Postavka";
-            this.button_Change_Postavka.Size = new System.Drawing.Size(196, 36);
-            this.button_Change_Postavka.TabIndex = 1;
-            this.button_Change_Postavka.Text = "Изменить";
-            this.button_Change_Postavka.UseVisualStyleBackColor = false;
+            this.button_Change_Nakl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(173)))), ((int)(((byte)(156)))));
+            this.button_Change_Nakl.FlatAppearance.BorderSize = 0;
+            this.button_Change_Nakl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_Change_Nakl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button_Change_Nakl.Location = new System.Drawing.Point(33, 94);
+            this.button_Change_Nakl.Margin = new System.Windows.Forms.Padding(2);
+            this.button_Change_Nakl.Name = "button_Change_Nakl";
+            this.button_Change_Nakl.Size = new System.Drawing.Size(180, 29);
+            this.button_Change_Nakl.TabIndex = 1;
+            this.button_Change_Nakl.Text = "Изменить";
+            this.button_Change_Nakl.UseVisualStyleBackColor = false;
+            this.button_Change_Nakl.Click += new System.EventHandler(this.button_Change_Nakl_Click);
             // 
-            // button_New_Postavka
+            // button_New_Nakl
             // 
-            this.button_New_Postavka.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(173)))), ((int)(((byte)(156)))));
-            this.button_New_Postavka.FlatAppearance.BorderSize = 0;
-            this.button_New_Postavka.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_New_Postavka.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button_New_Postavka.Location = new System.Drawing.Point(21, 11);
-            this.button_New_Postavka.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button_New_Postavka.Name = "button_New_Postavka";
-            this.button_New_Postavka.Size = new System.Drawing.Size(196, 36);
-            this.button_New_Postavka.TabIndex = 0;
-            this.button_New_Postavka.Text = "Новая накладная";
-            this.button_New_Postavka.UseVisualStyleBackColor = false;
+            this.button_New_Nakl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(173)))), ((int)(((byte)(156)))));
+            this.button_New_Nakl.FlatAppearance.BorderSize = 0;
+            this.button_New_Nakl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_New_Nakl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button_New_Nakl.Location = new System.Drawing.Point(33, 12);
+            this.button_New_Nakl.Margin = new System.Windows.Forms.Padding(2);
+            this.button_New_Nakl.Name = "button_New_Nakl";
+            this.button_New_Nakl.Size = new System.Drawing.Size(180, 41);
+            this.button_New_Nakl.TabIndex = 0;
+            this.button_New_Nakl.Text = "Новая накладная";
+            this.button_New_Nakl.UseVisualStyleBackColor = false;
+            this.button_New_Nakl.Click += new System.EventHandler(this.button_New_Nakl_Click);
             // 
             // pictureBox4
             // 
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(0, -4);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox4.Location = new System.Drawing.Point(0, -3);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(899, 580);
+            this.pictureBox4.Size = new System.Drawing.Size(891, 580);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox4.TabIndex = 20;
             this.pictureBox4.TabStop = false;
@@ -403,22 +414,33 @@ namespace carsss
             this.label10.Size = new System.Drawing.Size(25, 24);
             this.label10.TabIndex = 7;
             this.label10.Text = "X";
-            this.label10.Click += new System.EventHandler(this.label10_Click);
+            // 
+            // close_Button
+            // 
+            this.close_Button.AutoSize = true;
+            this.close_Button.BackColor = System.Drawing.Color.PapayaWhip;
+            this.close_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.close_Button.Location = new System.Drawing.Point(860, -3);
+            this.close_Button.Name = "close_Button";
+            this.close_Button.Size = new System.Drawing.Size(25, 24);
+            this.close_Button.TabIndex = 21;
+            this.close_Button.Text = "X";
+            this.close_Button.Click += new System.EventHandler(this.close_Button_Click);
             // 
             // AccountantForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(893, 574);
-            this.Controls.Add(this.label10);
+            this.ClientSize = new System.Drawing.Size(890, 575);
+            this.Controls.Add(this.close_Button);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox4);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "AccountantForm";
             this.Text = "AccountantForm";
             this.Load += new System.EventHandler(this.AccountantForm_Load);
@@ -426,8 +448,8 @@ namespace carsss
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.refreshButton)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -441,19 +463,19 @@ namespace carsss
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox textBox_Search;
+        private System.Windows.Forms.TextBox searchBox;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox refreshButton;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox textBox_Price;
-        private System.Windows.Forms.TextBox textBox_Condition;
-        private System.Windows.Forms.TextBox textBox_Year;
-        private System.Windows.Forms.TextBox textBox_Color;
-        private System.Windows.Forms.TextBox textBox_Mark;
-        private System.Windows.Forms.TextBox textBox_ID;
+        private System.Windows.Forms.TextBox accPrice;
+        private System.Windows.Forms.TextBox accCond;
+        private System.Windows.Forms.TextBox accYear;
+        private System.Windows.Forms.TextBox accColor;
+        private System.Windows.Forms.TextBox accMark;
+        private System.Windows.Forms.TextBox accId;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
@@ -464,11 +486,12 @@ namespace carsss
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button button_Save_Postavka;
-        private System.Windows.Forms.Button button_Delete_Postavka;
-        private System.Windows.Forms.Button button_Change_Postavka;
-        private System.Windows.Forms.Button button_New_Postavka;
+        private System.Windows.Forms.Button button_Save_Nakl;
+        private System.Windows.Forms.Button button_Delete_Nakl;
+        private System.Windows.Forms.Button button_Change_Nakl;
+        private System.Windows.Forms.Button button_New_Nakl;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label close_Button;
     }
 }

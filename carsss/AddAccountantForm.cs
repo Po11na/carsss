@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,35 +8,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
-
 
 namespace carsss
 {
-    public partial class AddManagerForm : Form
+    public partial class AddAccountantForm : Form
     {
         DataBaseConnection dataBase = new DataBaseConnection();
-        public AddManagerForm()
+        public AddAccountantForm()
         {
             InitializeComponent();
             StartPosition = FormStartPosition.CenterScreen;
         }
 
-        private void AddManagerForm_Load(object sender, EventArgs e)
-        {
-
-        }
-        private void saveButtonAddManager_Click(object sender, EventArgs e)
+        private void saveAccountant_Click(object sender, EventArgs e)
         {
             dataBase.OpenConnection();
             string mark = marka.Text;
-            string color = textBox_colorAddManager.Text;
+            string color = colorField.Text;
             int year;
             string cond = condition.Text;
             int price;
-            if((int.TryParse(textBox_priceAddManager.Text, out price)) &&(int.TryParse(textBox_yearAddManager.Text, out year)))
+            if ((int.TryParse(priceField.Text, out price)) && (int.TryParse(yearField.Text, out year)))
             {
-                var addQuery = $"INSERT INTO menegertable ( mark, color, year, cond, price) VALUES ('{mark}', '{color}', '{year}', '{cond}','{price}')";
+                var addQuery = $"INSERT INTO accountant_table ( mark_acc, color_acc, year_acc, cond_acc, price_acc) VALUES ('{mark}', '{color}', '{year}', '{cond}','{price}')";
 
                 var command = new MySqlCommand(addQuery, dataBase.GetSqlConnection());
                 command.ExecuteNonQuery();
@@ -47,11 +42,7 @@ namespace carsss
                 MessageBox.Show("Цена и год должны иметь цифровой формат!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             dataBase.CloseConnection();
-        }
-
-        private void CloseButtonShopAssistantForm_Click(object sender, EventArgs e)
-        {
-            this.Close();
+            marka.Text = colorField.Text = condition.Text = yearField.Text = priceField.Text = "";
         }
     }
 }

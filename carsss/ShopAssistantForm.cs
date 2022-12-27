@@ -255,5 +255,7 @@ namespace carsss
                 textBox_PriceSale.Text = row.Cells[5].Value.ToString();
             }
         }
+
+        
     }
 }
