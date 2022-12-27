@@ -101,7 +101,7 @@ namespace carsss
             this.label5.Font = new System.Drawing.Font("Montserrat Medium", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label5.Location = new System.Drawing.Point(319, 163);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(39, 18);
+            this.label5.Size = new System.Drawing.Size(44, 20);
             this.label5.TabIndex = 22;
             this.label5.Text = "цвет";
             // 
@@ -112,7 +112,7 @@ namespace carsss
             this.label4.Font = new System.Drawing.Font("Montserrat Medium", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label4.Location = new System.Drawing.Point(319, 202);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(31, 18);
+            this.label4.Size = new System.Drawing.Size(34, 20);
             this.label4.TabIndex = 21;
             this.label4.Text = "год";
             // 
@@ -123,7 +123,7 @@ namespace carsss
             this.label3.Font = new System.Drawing.Font("Montserrat Medium", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label3.Location = new System.Drawing.Point(319, 242);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(78, 18);
+            this.label3.Size = new System.Drawing.Size(88, 20);
             this.label3.TabIndex = 20;
             this.label3.Text = "состояние";
             // 
@@ -145,7 +145,7 @@ namespace carsss
             this.label1.Font = new System.Drawing.Font("Montserrat Medium", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.Location = new System.Drawing.Point(319, 122);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(51, 18);
+            this.label1.Size = new System.Drawing.Size(54, 20);
             this.label1.TabIndex = 18;
             this.label1.Text = "марка";
             // 
@@ -218,7 +218,7 @@ namespace carsss
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(839, 496);
+            this.ClientSize = new System.Drawing.Size(839, 537);
             this.Controls.Add(this.CloseButtonShopAssistantForm);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.textBox_markAddShopAssistant);

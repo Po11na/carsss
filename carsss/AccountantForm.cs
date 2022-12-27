@@ -25,13 +25,15 @@ namespace carsss
 
         private void CreateColumns()
         {
+
             dataGridView2.Columns.Add("id_acc", "ID");
             dataGridView2.Columns.Add("mark_acc", "Модель");
             dataGridView2.Columns.Add("color_acc", "Цвет");
             dataGridView2.Columns.Add("year_acc", "Год");
             dataGridView2.Columns.Add("cond_acc", "Состояние");
-            dataGridView2.Columns.Add("price_acc", "Стоимость");
+            dataGridView2.Columns.Add("price_acc", "Доход с НДФ");
             dataGridView2.Columns.Add("IsNew", String.Empty);
+
         }
 
         private void ReadSingleRow(DataGridView dgw, IDataRecord record)
@@ -92,6 +94,8 @@ namespace carsss
             RefreshDataGrid(dataGridView2);
         }
 
+
+
         private void DeleteRow()
         {
             int index = dataGridView2.CurrentCell.RowIndex;
@@ -125,6 +129,7 @@ namespace carsss
                     MySqlCommand command = new MySqlCommand(delQuery,dataBase.GetSqlConnection());
                     command.ExecuteNonQuery();
                 }
+
                 if(rowState == RoWState.Modified)
                 {
                     var id = dataGridView2.Rows[i].Cells[0].Value.ToString();
@@ -200,5 +205,7 @@ namespace carsss
         {
             this.Close();
         }
+
+        
     }
 }

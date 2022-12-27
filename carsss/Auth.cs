@@ -60,6 +60,11 @@ namespace carsss
                         var dir = new DirectorForm();
                         dir.Show(); Hide();
                         break;
+                    case "accountant":
+                        var acc = new AccountantForm();
+                        acc.Show(); Hide();
+                        break;
+
                     case "manager":
                         var men = new ManagerForm();
                         men.Show(); Hide();
@@ -82,6 +87,11 @@ namespace carsss
         }
 
         private void MainPlane_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
 
         }

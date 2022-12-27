@@ -417,7 +417,7 @@ namespace carsss
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox4.TabIndex = 18;
             this.pictureBox4.TabStop = false;
-            
+            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
             // 
             // ShopAssistantForm
             // 

@@ -7,16 +7,21 @@ using MySql.Data.MySqlClient;
 
 namespace carsss
 {
-    class DataBaseConnection
+    public class DataBaseConnection
     {
         MySqlConnection connection = new MySqlConnection(
             "server = localhost;"+
             "port =3306;"+
             "username = root;"+
+
             //"password = vaspurakanci1915;" +
             "password = Polina2003/;" +
             //"database = automir;"
             "database = pupupu;"
+
+            //"password = vaspurakanci1915;" +
+            //"database = automir;"
+
             );
 
         public void OpenConnection()
