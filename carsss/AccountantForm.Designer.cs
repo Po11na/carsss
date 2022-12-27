@@ -93,6 +93,7 @@ namespace carsss
             this.searchBox.Name = "searchBox";
             this.searchBox.Size = new System.Drawing.Size(144, 24);
             this.searchBox.TabIndex = 2;
+            this.searchBox.TextChanged += new System.EventHandler(this.searchBox_TextChanged);
             // 
             // pictureBox5
             // 
@@ -141,11 +142,14 @@ namespace carsss
             // 
             // dataGridView2
             // 
+            this.dataGridView2.AllowUserToAddRows = false;
+            this.dataGridView2.AllowUserToDeleteRows = false;
             this.dataGridView2.BackgroundColor = System.Drawing.Color.PapayaWhip;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Location = new System.Drawing.Point(0, 83);
             this.dataGridView2.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.ReadOnly = true;
             this.dataGridView2.RowHeadersWidth = 51;
             this.dataGridView2.RowTemplate.Height = 24;
             this.dataGridView2.Size = new System.Drawing.Size(668, 199);
@@ -349,6 +353,7 @@ namespace carsss
             this.button_Save_Nakl.TabIndex = 3;
             this.button_Save_Nakl.Text = "Сохранить";
             this.button_Save_Nakl.UseVisualStyleBackColor = false;
+            this.button_Save_Nakl.Click += new System.EventHandler(this.button_Save_Nakl_Click);
             // 
             // button_Delete_Nakl
             // 
@@ -363,6 +368,7 @@ namespace carsss
             this.button_Delete_Nakl.TabIndex = 2;
             this.button_Delete_Nakl.Text = "Удалить";
             this.button_Delete_Nakl.UseVisualStyleBackColor = false;
+            this.button_Delete_Nakl.Click += new System.EventHandler(this.button_Delete_Nakl_Click);
             // 
             // button_Change_Nakl
             // 
@@ -377,6 +383,7 @@ namespace carsss
             this.button_Change_Nakl.TabIndex = 1;
             this.button_Change_Nakl.Text = "Изменить";
             this.button_Change_Nakl.UseVisualStyleBackColor = false;
+            this.button_Change_Nakl.Click += new System.EventHandler(this.button_Change_Nakl_Click);
             // 
             // button_New_Nakl
             // 
@@ -408,7 +415,7 @@ namespace carsss
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(670, 466);
+            this.ClientSize = new System.Drawing.Size(667, 466);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.panel2);
